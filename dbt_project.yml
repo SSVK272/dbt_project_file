@@ -36,3 +36,12 @@ models:
     # Applies to all files under models/example/
     example:
       materialized: view
+
+    stg_layer:
+      schema: stg_layer
+
+    trans_layer:
+      schema: trans_layer
+
+    bi_layer:
+      schema: bi_layer
