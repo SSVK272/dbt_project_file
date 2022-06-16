@@ -18,7 +18,11 @@ part as(
     select * from {{ ref('part_stg') }}
 )
 
-SELECT c.c_custkey,
+SELECT 
+       sha2(array_to_string(array_construct(o.o_orderkey,p.p_partkey,c.c_custkey),'^^^^')) as dwhash_key,
+       o.o_orderkey,
+       p.p_partkey,
+       c.c_custkey,
        c_name,
        p.p_name,
        p.p_brand,
