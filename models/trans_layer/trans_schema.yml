@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: orders_details_trans
+  - name: order_details_trans
     columns:
       - name: dwhash_key
         tests:

@@ -19,7 +19,7 @@ part as(
 )
 
 SELECT 
-       sha2(array_to_string(array_construct(o.o_orderkey,p.p_partkey,c.c_custkey),'^^^^')) as dwhash_key,
+       sha2(array_to_string(array_construct(o.o_orderkey,p.p_partkey,c.c_custkey,o.o_orderdate,l.l_shipdate),'^^^^')) as dwhash_key,
        o.o_orderkey,
        p.p_partkey,
        c.c_custkey,
