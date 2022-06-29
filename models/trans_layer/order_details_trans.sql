@@ -25,6 +25,8 @@ SELECT
        c.c_custkey,
        c.c_name,
        c.c_phone,
+       c.c_acctbal,
+       c.c_acctbal as balance_amount,
        p.p_name,
        p.p_brand,
        o.o_orderdate,
