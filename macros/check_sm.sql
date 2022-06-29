@@ -7,6 +7,6 @@
     {% elif sm in modes %}
         'Y'
     {% else %}
-        'N'
+        'N' 
     {% endif %}
 {% endmacro %}
