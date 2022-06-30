@@ -1,0 +1,9 @@
+version: 2
+
+models:
+  - name: customer_stg
+    columns:
+      - name: c_custkey
+        test:
+          - not_null
+          - unique
