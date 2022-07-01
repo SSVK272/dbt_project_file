@@ -1,7 +1,8 @@
 {{
     config(
         materialized = 'table',
-        alias = 'order_details'
+        alias = 'order_details',
+        tags='everyday'
     )
 }}
 
@@ -31,21 +32,21 @@ SELECT
        p.p_brand,
        o.o_orderdate,
        o.o_orderpriority,
-       l.l_quantity    AS qty,
-       p.p_retailprice AS price,
+       l.l_quantity as qty,
+       p.p_retailprice as price,
        l.l_extendedprice,
-       ( qty * price ) AS calc_price,
-       CASE
-         WHEN ( qty * price ) = l.l_extendedprice THEN 'Matching'
-         ELSE 'Not Matching'
-       end             AS Price_Check_Flag,
+       ( qty * price ) as calc_price,
+       case
+         when ( qty * price ) = l.l_extendedprice then 'Matching'
+         else 'Not Matching'
+       end as Price_Check_Flag,
        l.l_linestatus,
        l.l_shipdate,
        l.l_shipmode
-FROM   customer c
-       INNER JOIN orders o
-               ON ( c.c_custkey = o.o_custkey )
-       INNER JOIN lineitem l
-               ON ( l.l_orderkey = o.o_orderkey )
-       INNER JOIN part p
-               ON ( p.p_partkey = l.l_partkey ) 
+from   customer c
+       inner join orders o
+               on ( c.c_custkey = o.o_custkey )
+       inner join lineitem l
+               on ( l.l_orderkey = o.o_orderkey )
+       inner join part p
+               on ( p.p_partkey = l.l_partkey ) 

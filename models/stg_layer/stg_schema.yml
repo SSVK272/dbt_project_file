@@ -2,8 +2,10 @@ version: 2
 
 models:
   - name: customer_stg
+    description: The model builds the customer raw_data view in the staging layer
     columns:
       - name: c_custkey
-        test:
+        description: The c_custkey column is primary key column
+        tests:
           - not_null
           - unique
