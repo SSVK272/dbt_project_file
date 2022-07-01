@@ -1,0 +1,11 @@
+selectors:
+  - name: orders_dim
+    description: Refresh orders related tables
+    definition:
+      method: tag
+      value: everyday
+      parents: true
+      children: true
+      paren_depth: 1
+      children_depth: 1
+
